@@ -22,6 +22,20 @@ const SECURITY_HEADERS = {
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
 };
 
+const NUMERO_VALIDO = /^-?\d{1,6}(\.\d{1,4})?$/;
+
+// feature/feature1: conversión de Celsius a Fahrenheit con validación estricta
+function celsiusAFahrenheit(valor) {
+  if (typeof valor !== 'string' || !NUMERO_VALIDO.test(valor)) {
+    return null;
+  }
+  const celsius = Number(valor);
+  if (celsius < -273.15) {
+    return null; // por debajo del cero absoluto
+  }
+  return Number((celsius * 9 / 5 + 32).toFixed(4));
+}
+
 function send(res, status, headers, body) {
   res.writeHead(status, { ...SECURITY_HEADERS, ...headers });
   res.end(body);
@@ -34,10 +48,17 @@ function createServer({ logger = () => {} } = {}) {
       logger(`${req.method} ${req.url} ${res.statusCode}`);
     });
 
-    const { pathname } = new URL(req.url, 'http://localhost');
+    const { pathname, searchParams } = new URL(req.url, 'http://localhost');
 
     if (pathname === '/health') {
       return send(res, 200, { 'Content-Type': MIME_TYPES['.json'] }, JSON.stringify({ status: 'ok' }));
+    }
+
+    if (pathname === '/api/temperatura') {
+      const fahrenheit = celsiusAFahrenheit(searchParams.get('celsius'));
+      const ok = fahrenheit !== null;
+      const payload = ok ? { fahrenheit } : { error: 'Temperatura inválida' };
+      return send(res, ok ? 200 : 400, { 'Content-Type': MIME_TYPES['.json'] }, JSON.stringify(payload));
     }
 
     const relative = pathname === '/' ? 'index.html' : pathname;
@@ -64,4 +85,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { createServer, SECURITY_HEADERS };
+module.exports = { createServer, celsiusAFahrenheit, SECURITY_HEADERS };
