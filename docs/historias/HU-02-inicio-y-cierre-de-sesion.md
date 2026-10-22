@@ -8,8 +8,11 @@
 - La sesión expira tras un periodo de inactividad configurable.
 
 ## Criterios de seguridad
-- El mensaje de error es idéntico para usuario inexistente y contraseña incorrecta.
-- Tras 5 intentos fallidos se bloquea la cuenta temporalmente o se aplica retardo progresivo.
-- La cookie de sesión usa `HttpOnly`, `Secure` y `SameSite=Strict`.
-- El identificador de sesión se regenera al iniciar sesión y se invalida en el servidor al cerrarla.
-- Se registran los intentos fallidos sin guardar la contraseña.
+
+**Estado:** 0 de 5 criterios de seguridad cumplidos.
+
+- [ ] El mensaje de error es idéntico para usuario inexistente y contraseña incorrecta.
+- [ ] Tras 5 intentos fallidos se bloquea la cuenta temporalmente o se aplica retardo progresivo.
+- [ ] La cookie de sesión usa `HttpOnly`, `Secure` y `SameSite=Strict`.
+- [ ] El identificador de sesión se regenera al iniciar sesión y se invalida en el servidor al cerrarla.
+- [ ] Se registran los intentos fallidos sin guardar la contraseña.

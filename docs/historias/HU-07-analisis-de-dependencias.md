@@ -9,7 +9,10 @@
 - El informe indica paquete, versión afectada y versión corregida.
 
 ## Criterios de seguridad
-- Se versiona el `package-lock.json` y se instala con `npm ci` para builds reproducibles.
-- Las excepciones aceptadas se documentan con justificación y fecha de revisión.
-- Se genera un SBOM (por ejemplo CycloneDX) en cada release.
-- Los paquetes nuevos se revisan por mantenimiento y reputación antes de añadirse.
+
+**Estado:** 1 de 4 criterios de seguridad cumplidos.
+
+- [x] Se versiona el `package-lock.json` y se instala con `npm ci` para builds reproducibles. *(dependencies.yml usa `npm ci` (rama `ci/analisis-dependencias`))*
+- [ ] Las excepciones aceptadas se documentan con justificación y fecha de revisión.
+- [ ] Se genera un SBOM (por ejemplo CycloneDX) en cada release.
+- [ ] Los paquetes nuevos se revisan por mantenimiento y reputación antes de añadirse.

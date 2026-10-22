@@ -8,8 +8,11 @@
 - Con más de 1000 elementos, la respuesta sigue siendo ágil.
 
 ## Criterios de seguridad
-- Los parámetros de búsqueda, orden y paginación se validan contra listas permitidas y tipos esperados (previene inyección).
-- Las consultas a la base de datos son parametrizadas.
-- El tamaño máximo de página está limitado en el servidor.
-- El resultado incluye únicamente elementos del usuario autenticado.
-- El texto de búsqueda se escapa al reflejarse en la página.
+
+**Estado:** 0 de 5 criterios de seguridad cumplidos.
+
+- [ ] Los parámetros de búsqueda, orden y paginación se validan contra listas permitidas y tipos esperados (previene inyección).
+- [ ] Las consultas a la base de datos son parametrizadas.
+- [ ] El tamaño máximo de página está limitado en el servidor.
+- [ ] El resultado incluye únicamente elementos del usuario autenticado.
+- [ ] El texto de búsqueda se escapa al reflejarse en la página.

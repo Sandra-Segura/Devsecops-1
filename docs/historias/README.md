@@ -10,3 +10,5 @@
 - [HU-08: Análisis estático de código (SAST)](HU-08-analisis-estatico-de-codigo-sast.md)
 - [HU-09: Detección de secretos](HU-09-deteccion-de-secretos.md)
 - [HU-10: Cabeceras de seguridad y monitoreo de salud](HU-10-cabeceras-de-seguridad-y-monitoreo-de-salud.md)
+
+Leyenda de los criterios de seguridad: `[x]` cumplido, `[ ]` pendiente.

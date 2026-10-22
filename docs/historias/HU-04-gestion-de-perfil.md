@@ -8,8 +8,11 @@
 - Si el guardado falla, se conserva lo escrito y se muestra el motivo.
 
 ## Criterios de seguridad
-- Un usuario solo puede leer y modificar su propio perfil; se verifica en el servidor (control de acceso a nivel de objeto, sin IDOR).
-- Los datos mostrados se escapan al renderizar para prevenir XSS.
-- Los cambios de correo exigen reconfirmación del nuevo correo y de la contraseña actual.
-- Se usa protección CSRF (token o `SameSite`) en las operaciones de escritura.
-- Se rechazan campos no esperados en la petición (sin mass assignment).
+
+**Estado:** 0 de 5 criterios de seguridad cumplidos.
+
+- [ ] Un usuario solo puede leer y modificar su propio perfil; se verifica en el servidor (control de acceso a nivel de objeto, sin IDOR).
+- [ ] Los datos mostrados se escapan al renderizar para prevenir XSS.
+- [ ] Los cambios de correo exigen reconfirmación del nuevo correo y de la contraseña actual.
+- [ ] Se usa protección CSRF (token o `SameSite`) en las operaciones de escritura.
+- [ ] Se rechazan campos no esperados en la petición (sin mass assignment).

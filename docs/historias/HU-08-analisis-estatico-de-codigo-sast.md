@@ -9,7 +9,10 @@
 - Los falsos positivos se pueden marcar con justificación.
 
 ## Criterios de seguridad
-- Los hallazgos de severidad alta bloquean el merge.
-- Los resultados solo son visibles para quienes tienen acceso al repositorio.
-- Las reglas se mantienen actualizadas y se revisan periódicamente.
-- Se cubren al menos inyección, XSS, path traversal y uso inseguro de `eval`.
+
+**Estado:** 0 de 4 criterios de seguridad cumplidos.
+
+- [ ] Los hallazgos de severidad alta bloquean el merge.
+- [ ] Los resultados solo son visibles para quienes tienen acceso al repositorio.
+- [ ] Las reglas se mantienen actualizadas y se revisan periódicamente.
+- [ ] Se cubren al menos inyección, XSS, path traversal y uso inseguro de `eval`.

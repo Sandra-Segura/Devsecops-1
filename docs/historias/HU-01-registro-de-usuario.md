@@ -9,8 +9,11 @@
 - Los errores se muestran junto al campo correspondiente y son accesibles (aria-live).
 
 ## Criterios de seguridad
-- La contraseña exige mínimo 12 caracteres y se rechaza si figura en listas de contraseñas filtradas.
-- La contraseña se almacena con un hash lento y con sal (argon2id o bcrypt); nunca en texto plano ni en logs.
-- La entrada se valida y sanea en el servidor, no solo en el cliente.
-- El endpoint tiene límite de peticiones por IP para frenar el registro masivo.
-- El envío se hace solo por HTTPS.
+
+**Estado:** 0 de 5 criterios de seguridad cumplidos.
+
+- [ ] La contraseña exige mínimo 12 caracteres y se rechaza si figura en listas de contraseñas filtradas.
+- [ ] La contraseña se almacena con un hash lento y con sal (argon2id o bcrypt); nunca en texto plano ni en logs.
+- [ ] La entrada se valida y sanea en el servidor, no solo en el cliente.
+- [ ] El endpoint tiene límite de peticiones por IP para frenar el registro masivo.
+- [ ] El envío se hace solo por HTTPS.
