@@ -10,9 +10,10 @@
 
 ## Criterios de seguridad
 
-**Estado:** 0 de 4 criterios de seguridad cumplidos.
+**Estado:** 0 de 5 criterios de seguridad cumplidos.
 
 - [ ] Los secretos reales se guardan en el gestor de secretos de la plataforma, nunca en el código.
 - [ ] Un secreto detectado se considera comprometido: se rota y se revisa el historial.
 - [ ] Se activa el escaneo de secretos y la protección contra push del repositorio.
 - [ ] Los logs del pipeline enmascaran los valores secretos.
+- [ ] El escaneo del pipeline es obligatorio y bloquea el merge, aunque se omita el hook local (--no-verify).
