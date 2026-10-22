@@ -1,0 +1,59 @@
+name: Dependencias
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Cada lunes: aparecen CVE nuevos aunque el código no cambie
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dependencias-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    name: npm audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Instalar dependencias (reproducible)
+        run: npm ci
+
+      - name: Generar informe de vulnerabilidades
+        run: npm audit --json > npm-audit.json || true
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: npm-audit-report
+          path: npm-audit.json
+          retention-days: 30
+
+      - name: Fallar con vulnerabilidades altas o críticas
+        run: npm audit --audit-level=high
+
+      # Cuando existan dependencias, agregar: npm audit signatures (falla si no hay ninguna instalada)
+
+  dependency-review:
+    name: Revisión de dependencias del PR
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: high
